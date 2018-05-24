@@ -2,3 +2,10 @@ language: node_js
 node_js: node
 services:
 - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: KcIz6FGxgpT82o+Hq4k9mPIvLoE49mFDV+Gt0nUzsSTZ8O5YDGxnkQkBWg57lyy6UrDPH4aNWIqz1EC7ibZ+cDUcU+XrHU6wE9TQdnEcSIiJCcxqv063hqMUME0cqTgC39wDV34CrcnQjYP9krqHb+Au46z4pnVVaAmwT4VWgZ3Q0wSQ41Rr1M3BNY488mLxnIY3rEmcD/i2PMp4CGXUj/acGI/39Y4minaxOyp4hQ9lVGYyt4H01G4PkJY1QrDHE0H49ojw76D0iYlIWapZWK1B5uckcaz2SmJ/MTnL9kl//fx/jdp26gRTq+E4UkR9MNeeX02pCcOyAHRI/up4Vj8ew04JMiRPOyoa5+U4IcPxDkBM/grhxCkskT/XXyy5k9OfeBFTPyAKpP1MC5DU15GrTguRw24LwQKCPE4iUqSEzdUrqQyOEevcJXivv0t7qP8FnjEunByGTyaNh0l4aWI4pbgzcBQnLvu+95WWZx4pEgEJeaP8vOTbTWig2BZH+dakNNCU8dSgEYMPgXCM+Y7SWq17fajiWuiGUb+Ek71ELYX73WPjSMKc5PCys7KQykJ/J8RzQ3a4BBd8SdaFleFxN/h4dKUcy0wNBw+drD4p3v1rrM5thtPWVurttfV2qrBhUXdsHwENDv0LEZWTjKZi+bvS356UB8ybREi58hg=
+  app: protected-plains-77288
+  on:
+    repo: ethanblumenthal/blog-api-v3
