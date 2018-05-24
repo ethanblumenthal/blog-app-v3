@@ -37,3 +37,22 @@ function seedBlogPostData() {
   }
   return BlogPost.insertMany(seedData);
 }
+
+describe('blog posts API resource', function () {
+
+  before(function () {
+    return runServer(TEST_DATABASE_URL);
+  });
+
+  beforeEach(function () {
+    return seedBlogPostData();
+  });
+
+  afterEach(function () {
+    return tearDownDb();
+  });
+
+  after(function () {
+    return closeServer();
+  });
+});
