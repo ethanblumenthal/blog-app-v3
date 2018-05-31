@@ -9,7 +9,7 @@ const should = chai.should();
 
 const { BlogPost } = require('../models');
 const { closeServer, runServer, app } = require('../server');
-const { TEST_DATABASE_URL } = require('../config');
+const { DATABASE_URL } = require('../config');
 
 chai.use(chaiHttp);
 
@@ -43,7 +43,7 @@ function seedBlogPostData() {
 // RESET BETWEEN TESTS
 describe('blog posts API resource', function () {
   before(function () {
-    return runServer(TEST_DATABASE_URL);
+    return runServer(DATABASE_URL);
   });
   beforeEach(function () {
     return seedBlogPostData();
@@ -65,7 +65,6 @@ describe('blog posts API resource', function () {
           res = _res;
           res.should.have.status(200);
           res.body.should.have.lengthOf.at.least(1);
-
           return BlogPost.count();
         })
         .then(count => {
@@ -78,12 +77,10 @@ describe('blog posts API resource', function () {
       return chai.request(app)
         .get('/posts')
         .then(function (res) {
-
           res.should.have.status(200);
           res.should.be.json;
           res.body.should.be.a('array');
           res.body.should.have.lengthOf.at.least(1);
-
           res.body.forEach(function (post) {
             post.should.be.a('object');
             post.should.include.keys('id', 'title', 'content', 'author', 'created');
